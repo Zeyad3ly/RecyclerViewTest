@@ -1,6 +1,7 @@
 package com.example.recyclerviewtest;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,6 +53,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             @Override
             public void onClick(View v) {
                 Toast.makeText(mContext, mImageName.get(position), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(mContext, GalleryActivity.class);
+                intent.putExtra("image_url", mImages.get(position));
+                intent.putExtra("image_name", mImageName.get(position));
+                mContext.startActivity(intent);
             }
         });
     }
